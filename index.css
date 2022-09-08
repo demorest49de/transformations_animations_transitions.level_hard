@@ -2,30 +2,34 @@
     box-sizing: border-box;
 }
 
+body {
+    background: honeydew;
+}
+
 .section {
     width: 1200px;
     margin: 0 auto;
     padding: 50px 0;
 }
 
-.container{
+.container {
     display: flex;
     align-items: center;
 }
 
-.bar-one{
+.bar-one {
     justify-content: center;
 }
 
-.bar-two{
+.bar-two {
     justify-content: left;
 }
 
-.bar-three{
+.bar-three {
     justify-content: center;
 }
 
-.bar-ground{
+.bar-percentage-ground {
     width: 50%;
     height: 30px;
 
@@ -33,20 +37,44 @@
 }
 
 .bar-percentage {
-    align-self: flex-start;
     width: 20%;
     height: 100%;
     background-color: lime;
+    animation-name: anim-one;
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes anim-one {
+    from {
+        width: 20%;
+    }
+    to {
+        width: 90%;
+    }
 }
 
 .bar-in-out {
-    display: flex;
-    justify-content: left;
-    margin-bottom: 50px;
-    width: 50%;
+    width: 200px;
     height: 30px;
     background-color: chocolate;
+    animation: anim-two 4s infinite alternate;
 }
+
+.bar-in-out:not(:hover) {
+    animation-play-state: paused;
+}
+
+@keyframes anim-two {
+     0% {
+         width: 200px;
+     }
+     100% {
+         width: 100%;
+     }
+ }
+
 
 .bar-ball {
     display: flex;
@@ -55,3 +83,6 @@
     height: 100px;
     border: 2px solid darkslateblue;
 }
+
+
+
